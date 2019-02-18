@@ -3,25 +3,15 @@
 class Game{
 
   constructor(opts={}){
+    this.categories = ['Pop', 'Science', 'Sports', 'Rock'];
+    this.categoryAnswers = {'Pop': 0, 'Science': 0, 'Sports': 0, 'Rock': 0};
     this.players = new Array();
     this.places = new Array(6);
     this.purses = new Array(6);
     this.inPenaltyBox = new Array(6);
 
-    this.popQuestions = new Array();
-    this.scienceQuestions = new Array();
-    this.sportsQuestions = new Array();
-    this.rockQuestions = new Array();
-
     this.currentPlayer = 0;
     this.isGettingOutOfPenaltyBox = false;
-
-    for (let i = 0; i < 50; i++) {
-      this.popQuestions.push("Pop Question " + i);
-      this.scienceQuestions.push("Science Question " + i);
-      this.sportsQuestions.push("Sports Question " + i);
-      this.rockQuestions.push("Rock Question " + i);
-    }
   }
 
   didPlayerWin(){
@@ -29,19 +19,12 @@ class Game{
   }
 
   currentCategory(){
-    switch(this.places[this.currentPlayer] % 4) {
-      case 0:
-        return 'Pop';
-        break;
-      case 1:
-        return 'Science';
-        break;
-      case 2:
-        return 'Sports';
-        break;
-      default:
-        return 'Rock';
-    }
+    return this.categories[this.places[this.currentPlayer] % 4];
+  }
+
+  getQuestion(category){
+    // Returning and incrementing answer count
+    return `${category} Question ${this.categoryAnswers[category]++}`;
   }
 
   isPlayable(howManyPlayers){
@@ -66,14 +49,7 @@ class Game{
 
 
   askQuestion(){
-    if (this.currentCategory() == 'Pop')
-      console.log(this.popQuestions.shift());
-    if (this.currentCategory() == 'Science')
-      console.log(this.scienceQuestions.shift());
-    if (this.currentCategory() == 'Sports')
-      console.log(this.sportsQuestions.shift());
-    if (this.currentCategory() == 'Rock')
-      console.log(this.rockQuestions.shift());
+    console.log(this.getQuestion(this.currentCategory()));
   }
 
   roll(roll) {
