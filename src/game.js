@@ -39,18 +39,14 @@ class Game{
 
   add(playerName){
     this.players.push(playerName);
-    this.places[this.howManyPlayers() - 1] = 0;
-    this.purses[this.howManyPlayers() - 1] = 0;
-    this.inPenaltyBox[this.howManyPlayers() - 1] = false;
+    this.places[this.players.length - 1] = 0;
+    this.purses[this.players.length - 1] = 0;
+    this.inPenaltyBox[this.players.length - 1] = false;
 
     console.log(playerName + " was added");
     console.log("They are player number " + this.players.length);
 
     return true;
-  }
-
-  howManyPlayers() {
-    return this.players.length;
   }
 
 
