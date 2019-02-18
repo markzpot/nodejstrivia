@@ -12,6 +12,12 @@ class Game{
 
     this.currentPlayer = 0;
     this.isGettingOutOfPenaltyBox = false;
+
+    if(typeof(opts.people) != 'undefined'){
+      for (var i = 0; i < opts.people.length; i++) {
+        this.add(opts.people[i]);
+      }
+    }
   }
 
   didPlayerWin(){
@@ -140,11 +146,9 @@ class Game{
 
 var notAWinner = false;
 
-var game = new Game();
-
-game.add('Chet');
-game.add('Pat');
-game.add('Sue');
+var game = new Game({
+  people: ['Chet', 'Pat', 'Sue']
+});
 
 do {
 
