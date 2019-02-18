@@ -16,7 +16,6 @@ describe("The game", function () {
   it("should switch players", function () {
     let firstPlayer = game.currentPlayer;
     game.nextPlayer();
-    console.log('Test', firstPlayer, game.currentPlayer);
     Should(firstPlayer).not.equal(game.currentPlayer);
   });
 });

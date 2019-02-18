@@ -33,15 +33,13 @@ class Game{
     return `${category} Question ${this.categoryAnswers[category]++}`;
   }
 
-  isPlayable(howManyPlayers){
-    return howManyPlayers >= 2;
-  }
-
   add(playerName){
     this.players.push(playerName);
-    this.places[this.players.length - 1] = 0;
-    this.purses[this.players.length - 1] = 0;
-    this.inPenaltyBox[this.players.length - 1] = false;
+
+    let playerIndex = this.players.length - 1;
+    this.places[playerIndex] = 0;
+    this.purses[playerIndex] = 0;
+    this.inPenaltyBox[playerIndex] = false;
 
     console.log(playerName + " was added");
     console.log("They are player number " + this.players.length);
