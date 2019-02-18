@@ -58,6 +58,12 @@ class Game{
     console.log(this.getQuestion(this.currentCategory()));
   }
 
+  nextPlayer(){
+    this.currentPlayer += 1;
+    if (this.currentPlayer == this.players.length)
+      this.currentPlayer = 0;
+  }
+
   roll(roll) {
     console.log(this.players[this.currentPlayer] + " is the current player");
     console.log("They have rolled a " + roll);
@@ -101,15 +107,11 @@ class Game{
             this.purses[this.currentPlayer] + " Gold Coins.");
 
         var winner = this.didPlayerWin();
-        this.currentPlayer += 1;
-        if (this.currentPlayer == this.players.length)
-          this.currentPlayer = 0;
+        this.nextPlayer();
 
         return winner;
       } else {
-        this.currentPlayer += 1;
-        if (this.currentPlayer == this.players.length)
-          this.currentPlayer = 0;
+        this.nextPlayer();
         return true;
       }
 
@@ -124,9 +126,7 @@ class Game{
 
       var winner = this.didPlayerWin();
 
-      this.currentPlayer += 1;
-      if (this.currentPlayer == this.players.length)
-        this.currentPlayer = 0;
+      this.nextPlayer();
 
       return winner;
     }
@@ -137,9 +137,7 @@ class Game{
     console.log(this.players[this.currentPlayer] + " was sent to the penalty box");
     this.inPenaltyBox[this.currentPlayer] = true;
 
-    this.currentPlayer += 1;
-    if (this.currentPlayer == this.players.length)
-      this.currentPlayer = 0;
+    this.nextPlayer();
     return true;
   }
 }
