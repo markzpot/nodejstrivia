@@ -20,7 +20,7 @@ class Game{
       this.popQuestions.push("Pop Question " + i);
       this.scienceQuestions.push("Science Question " + i);
       this.sportsQuestions.push("Sports Question " + i);
-      this.rockQuestions.push(this.createRockQuestion(i));
+      this.rockQuestions.push("Rock Question " + i);
     }
   }
 
@@ -42,10 +42,6 @@ class Game{
       default:
         return 'Rock';
     }
-  }
-
-  createRockQuestion(index){
-    return "Rock Question " + index;
   }
 
   isPlayable(howManyPlayers){
