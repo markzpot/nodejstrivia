@@ -11,6 +11,12 @@ describe("The test environment", function () {
   });
 });
 
-describe("Your specs...", function () {
-  // it ...
+describe("The game", function () {
+  let game = new Game({people: ['one', 'two']});
+  it("should switch players", function () {
+    let firstPlayer = game.currentPlayer;
+    game.nextPlayer();
+    console.log('Test', firstPlayer, game.currentPlayer);
+    Should(firstPlayer).not.equal(game.currentPlayer);
+  });
 });
