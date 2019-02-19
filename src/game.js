@@ -23,7 +23,7 @@ class Game{
   }
 
   didPlayerWin(){
-    return !(this.purses[this.currentPlayer] == 6)
+    return !(this.purses[this.currentPlayer] === 6)
   }
 
   currentCategory(){
@@ -56,7 +56,7 @@ class Game{
 
   nextPlayer(){
     this.currentPlayer += 1;
-    if (this.currentPlayer == this.players.length){
+    if (this.currentPlayer === this.players.length){
       this.currentPlayer = 0;
     }
   }
@@ -136,7 +136,7 @@ do {
   game.roll(Math.floor(Math.random() * 6) + 1);
 
   // Is this roll based on some winning condition of a real game?
-  if (Math.floor(Math.random() * 10) == 7) {
+  if (Math.floor(Math.random() * 10) === 7) {
     notAWinner = game.wrongAnswer();
   } else {
     notAWinner = game.wasCorrectlyAnswered();
