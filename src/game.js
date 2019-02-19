@@ -16,7 +16,7 @@ class Game{
     this.isGettingOutOfPenaltyBox = false;
 
     if(typeof(opts.people) != 'undefined'){
-      for (var i = 0; i < opts.people.length; i++) {
+      for (let i = 0; i < opts.people.length; i++) {
         this.add(opts.people[i]);
       }
     }
@@ -107,7 +107,7 @@ class Game{
       console.log(this.players[this.currentPlayer] + " now has " +
           this.purses[this.currentPlayer] + " Gold Coins.");
 
-      var winner = this.didPlayerWin();
+      let winner = this.didPlayerWin();
 
       this.nextPlayer();
 
@@ -125,9 +125,9 @@ class Game{
   }
 }
 
-var notAWinner = false;
+let notAWinner = false;
 
-var game = new Game({
+let game = new Game({
   people: ['Chet', 'Pat', 'Sue']
 });
 
@@ -135,6 +135,7 @@ do {
 
   game.roll(Math.floor(Math.random() * 6) + 1);
 
+  // Is this roll based on some winning condition of a real game?
   if (Math.floor(Math.random() * 10) == 7) {
     notAWinner = game.wrongAnswer();
   } else {
