@@ -5,6 +5,8 @@ class Game{
   constructor(opts={}){
     this.categories = ['Pop', 'Science', 'Sports', 'Rock'];
     this.categoryAnswers = {'Pop': 0, 'Science': 0, 'Sports': 0, 'Rock': 0};
+
+    // TODO: Refactor players into class or object
     this.players = new Array();
     this.places = new Array(6);
     this.purses = new Array(6);
@@ -54,8 +56,9 @@ class Game{
 
   nextPlayer(){
     this.currentPlayer += 1;
-    if (this.currentPlayer == this.players.length)
+    if (this.currentPlayer == this.players.length){
       this.currentPlayer = 0;
+    }
   }
 
   roll(roll) {
